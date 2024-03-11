@@ -1,0 +1,38 @@
+{
+  "name": "@cicada-lang/grammar",
+  "version": "0.1.0",
+  "repository": "github:cicada-lang/grammar",
+  "type": "module",
+  "main": "./lib/index.js",
+  "files": [
+    "src",
+    "lib"
+  ],
+  "bin": {
+    "clique": "bin/grammar.js"
+  },
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "build:watch": "rm -rf lib && tsc --watch",
+    "test:node": "node --test",
+    "test:grammar:tests": "test-runner snapshot './bin/grammar.js' 'docs/grammar/**/*.grammar' --exclude 'docs/grammar/**/*.error.grammar'",
+    "test:grammar:tests-error": "test-runner snapshot-error './bin/grammar.js' 'docs/grammar/**/*.error.grammar'",
+    "test:grammar": "npm run test:grammar:tests && npm run test:grammar:tests-error",
+    "test": "npm run test:node && npm run test:grammar",
+    "format": "prettier src docs --write"
+  },
+  "dependencies": {
+    "@cicada-lang/framework": "^0.2.0",
+    "@cicada-lang/sexp": "^0.1.2",
+    "@xieyuheng/command-line": "^0.1.2",
+    "@xieyuheng/ty": "^0.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@xieyuheng/test-runner": "^0.2.10",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "typescript": "^5.3.3"
+  },
+  "license": "GPL-3.0-or-later"
+}
