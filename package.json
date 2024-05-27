@@ -12,8 +12,8 @@
     "clique": "bin/grammar.js"
   },
   "scripts": {
-    "build": "rm -rf lib && tsc",
-    "build:watch": "rm -rf lib && tsc --watch",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
     "test:node": "node --test",
     "test:grammar:tests": "test-runner snapshot './bin/grammar.js' 'docs/grammar/**/*.grammar' --exclude 'docs/grammar/**/*.error.grammar'",
     "test:grammar:tests-error": "test-runner snapshot-error './bin/grammar.js' 'docs/grammar/**/*.error.grammar'",
